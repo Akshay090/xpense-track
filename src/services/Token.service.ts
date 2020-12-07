@@ -28,7 +28,9 @@ class TokenService {
   /**
    * Used for checking if auth from token in ssr
    */
-  public async authenticateTokenSsr(ctx: NextPageContext): Promise<void> {
+  public async authenticateTokenSsr(
+    ctx: NextPageContext
+  ): Promise<void | Record<string, unknown>> {
     const ssr = ctx.req ? true : false;
     const cookies = new Cookies(ssr ? ctx.req?.headers.cookie : null);
     const token = cookies.get('token');
@@ -42,6 +44,8 @@ class TokenService {
       const navService = new NavService();
       this.deleteToken();
       navService.redirectUser('/?logout=true', ctx);
+    } else {
+      return data;
     }
   }
 }

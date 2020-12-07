@@ -15,6 +15,6 @@ export interface IRedirectOptions {
 }
 
 export interface APIResp {
-  data: Record<string, unknown>;
+  data: Record<string, string>;
   status: boolean;
 }
