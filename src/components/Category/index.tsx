@@ -1,6 +1,6 @@
 const Category = (): JSX.Element => {
   return (
-    <section className="max-w-3xl w-full mx-auto">
+    <section className="max-w-4xl w-full mx-auto mt-4">
       <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal flex flex-col">
         <div>Create Category</div>
         <input

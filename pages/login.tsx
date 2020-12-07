@@ -5,6 +5,10 @@ import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import TokenService from '@services/Token.service';
+import React from 'react';
+import NavButton from '@components/NavButton';
+import Nav from '@components/Nav';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -12,7 +16,14 @@ const Login: NextPage = () => {
   // const [authState, authDispatch] = useAuth();
   return (
     <main className="min-h-screen h-full bg-gray-100 font-sans leading-normal tracking-normal">
-      <section className="max-w-3xl w-full mx-auto">
+      <Nav title="XpenseTrack">
+        <NavButton
+          Icon={BsFillPersonLinesFill}
+          linkTo="/register"
+          text="Register"
+        />
+      </Nav>
+      <section className="max-w-4xl w-full mx-auto mt-4">
         <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal flex flex-col">
           <Formik
             initialValues={{
@@ -65,7 +76,7 @@ const Login: NextPage = () => {
                 .catch();
             }}
             render={({ handleSubmit, isSubmitting }: FormikProps<ILoginIn>) => (
-              <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+              <Form className="max-w-md px-8 pt-6 pb-8 mb-4 flex flex-col">
                 <div className="mb-4">
                   <label
                     className="block text-grey-darker text-sm font-bold mb-2"
@@ -97,15 +108,15 @@ const Login: NextPage = () => {
                     required
                     placeholder="******************"
                   />
-                  <p className="text-red text-xs italic">
+                  {/* <p className="text-red text-xs italic">
                     Please choose a password.
-                  </p>
+                  </p> */}
                 </div>
                 <div className="flex items-center justify-between">
                   <button
                     disabled={isSubmitting}
                     onClick={() => handleSubmit()}
-                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                     type="button"
                   >
                     Login
