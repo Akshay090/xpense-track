@@ -1,6 +1,3 @@
-import { IoIosLogIn } from 'react-icons/io';
-import NavButton from '@components/NavButton';
-
 interface IProps {
   title: string;
   children: JSX.Element;
