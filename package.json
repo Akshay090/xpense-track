@@ -1,0 +1,56 @@
+{
+  "name": "xpense-track",
+  "version": "1.0.0",
+  "description": "expense tracker web app",
+  "main": "index.js",
+  "repository": "https://github.com/Akshay090/xpense-track",
+  "author": "Akshay090",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "prettify": "npx prettier --write"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run prettify",
+      "npm run lint:fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.11",
+    "@types/node": "^14.14.10",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "autoprefixer": "^10.0.4",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.4",
+    "lint-staged": "^10.5.3",
+    "postcss": "^8.1.14",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.1",
+    "typescript": "^4.1.2"
+  }
+}
