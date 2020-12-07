@@ -1,6 +1,6 @@
 interface IProps {
   title: string;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 const Nav = ({ title, children }: IProps): JSX.Element => {
   return (

@@ -4,6 +4,7 @@ import { NextPage, NextPageContext } from 'next';
 import TokenService from '@services/Token.service';
 import React, { ReactNode } from 'react';
 import { IoIosLogOut } from 'react-icons/io';
+import { AiOutlineBarChart } from 'react-icons/ai';
 import NavButton from '@components/NavButton';
 
 interface IProps {
@@ -14,6 +15,7 @@ const IndexPage: NextPage = ({ categories }: IProps) => (
   <main className="min-h-screen h-full bg-gray-100 font-sans leading-normal tracking-normal">
     <Nav title="XpenseTrack">
       <NavButton Icon={IoIosLogOut} linkTo="/?logout=true" text="Logout" />
+      <NavButton Icon={AiOutlineBarChart} linkTo="/stats" text="Stats" />
     </Nav>
     <ExpenseInput categories={categories} />
   </main>
