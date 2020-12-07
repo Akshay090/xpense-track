@@ -10,7 +10,7 @@ import cx from 'classnames';
 import FetchService from '@services/Fetch.service';
 
 interface IProps {
-  categories: string[];
+  categories: string[] | undefined;
 }
 
 const initialFormState = {
@@ -77,7 +77,7 @@ const ExpenseInput = ({ categories }: IProps): JSX.Element => {
         'POST'
       );
       console.log(data, status, 'newCategory');
-      if (status) {
+      if (status && realCategories) {
         setForm(initialFormState);
         setrealCategories([newCategoryName, ...realCategories]);
         setMessage('New Category Added');
