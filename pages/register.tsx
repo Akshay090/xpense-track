@@ -4,7 +4,6 @@ import { IRegisterIn } from '../src/types/auth.types';
 import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
 import NavButton from '@components/NavButton';
 import Nav from '@components/Nav';
 import { IoIosLogIn } from 'react-icons/io';
