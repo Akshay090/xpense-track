@@ -13,3 +13,8 @@ export interface IRedirectOptions {
   ctx: NextPageContext;
   status: number;
 }
+
+export interface APIResp {
+  data: Record<string, unknown>;
+  status: boolean;
+}

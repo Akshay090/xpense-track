@@ -5,7 +5,6 @@ import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import TokenService from '@services/Token.service';
-import { stat } from 'fs';
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -43,7 +42,7 @@ const Login: NextPage = () => {
 
                     // save token in cookie for subsequent requests
                     const tokenService = new TokenService();
-                    tokenService.saveToken(data.token);
+                    tokenService.saveToken(data.token as string);
 
                     // Current api not return email or username
                     // Snippet for future use
@@ -109,7 +108,7 @@ const Login: NextPage = () => {
                     className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
                     type="button"
                   >
-                    Register
+                    Login
                   </button>
                 </div>
               </Form>

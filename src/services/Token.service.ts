@@ -1,3 +1,4 @@
+import { APIResp } from '../types/global.types';
 import { NextPageContext } from 'next/types';
 
 import Cookies from 'universal-cookie';
@@ -19,32 +20,28 @@ class TokenService {
     return;
   }
 
-  public checkAuthToken(token: string, ssr: boolean): Promise<any> {
-    return FetchService.isofetchAuthed(
-      `/auth/validate`,
-      { token },
-      'POST',
-      ssr
-    );
+  // Using categories route to validate token as no validate route
+  public checkAuthToken(token: string): Promise<APIResp> {
+    return FetchService.isofetchAuthedGET(`/api/v1/user/categories`, token);
   }
 
   /**
-   * Runs on both client and server side in the getInitialProps static.
-   * This decides whether the request is from client or server, which
-   * is important as the URL's will be different due to the Docker
-   * container network
-   * @param ctx
+   * Used for checking if auth from token in ssr
    */
   public async authenticateTokenSsr(ctx: NextPageContext): Promise<void> {
     const ssr = ctx.req ? true : false;
     const cookies = new Cookies(ssr ? ctx.req?.headers.cookie : null);
     const token = cookies.get('token');
+    console.log('token authssr', token);
 
-    const response = await this.checkAuthToken(token, ssr);
-    if (!response.success) {
+    const { status, data } = await this.checkAuthToken(token);
+    console.log('token respl', status, data);
+    if (status && data?.message === 'Invalid Token') {
+      console.log('logginout as no cookie');
+
       const navService = new NavService();
       this.deleteToken();
-      navService.redirectUser('/?l=t', ctx);
+      navService.redirectUser('/?logout=true', ctx);
     }
   }
 }
