@@ -170,7 +170,7 @@ const ExpenseInput = ({ categories }: IProps): JSX.Element => {
             <span className="block text-grey-darker text-lg font-medium mb-2">
               Select Category
             </span>
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap ">
               <input
                 className="py-1 border rounded-md w-56 px-2 focus:outline-none text-gray-700 font-medium focus:ring focus:border-green-300"
                 type="text"
@@ -180,7 +180,7 @@ const ExpenseInput = ({ categories }: IProps): JSX.Element => {
               />
               <button
                 onClick={handleCategoryAdd}
-                className="px-3 py-1 ml-2 rounded-md bg-blue-400 text-warmGray-100 font-semibold"
+                className="px-3 py-1 mt-2 md:mt-0 md:ml-2 rounded-md bg-blue-400 text-warmGray-100 font-semibold"
               >
                 Add
               </button>
@@ -191,7 +191,7 @@ const ExpenseInput = ({ categories }: IProps): JSX.Element => {
                   <div
                     key={idx}
                     className={cx({
-                      'bg-blue-300 h-9 rounded-md flex justify-center items-center text-white text-xl font-extrabold': true,
+                      'bg-blue-300 h-9 rounded-md flex justify-center items-center text-white text-sm md:text-xl font-extrabold': true,
                       'bg-blue-500': selCategory === elem,
                     })}
                     tabIndex={0}

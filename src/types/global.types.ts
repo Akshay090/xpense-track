@@ -14,6 +14,13 @@ export interface IRedirectOptions {
   status: number;
 }
 
+// interface ExpDataRes {
+//   amount: string;
+//   category: string;
+//   date_added: string;
+//   description: string;
+// }
+
 export interface APIResp {
   data: Record<string, string>;
   status: boolean;
